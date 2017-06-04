@@ -13,7 +13,7 @@
 
 ;;; Usage:
 ;; - You can toggle it with minor mode.
-;;   (flycheck-inline-mode 1)
+;;   (add-hook 'MODE-hook #'flycheck-inline-mode)
 ;; - Or you can manually set option `flycheck-display-errors-function' to function `flycheck-inline'.
 
 ;;; Code:
@@ -37,8 +37,8 @@
   "This is a minor mode to display flycheck error message in inline way."
   :global t
   (if flycheck-inline-mode
-      (setq flycheck-display-errors-function 'flycheck-inline)
-    (setq flycheck-display-errors-function 'flycheck-display-error-messages)
+      (setq-local flycheck-display-errors-function 'flycheck-inline)
+    (setq-local flycheck-display-errors-function 'flycheck-display-error-messages)
     ))
 
 
