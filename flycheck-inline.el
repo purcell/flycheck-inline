@@ -18,6 +18,7 @@
 (require 'inline-docs)
 (require 'flycheck)
 
+;;;###autoload
 (defun flycheck-inline (errors)
   "Display the flycheck message of ERRORS with inline style."
   (when errors
@@ -28,6 +29,7 @@
       (funcall 'flycheck-display-error-messages)))
   )
 
+;;;###autoload
 (define-minor-mode flycheck-inline-mode
   "This is a minor mode to display flycheck error message in inline way."
   :global t
