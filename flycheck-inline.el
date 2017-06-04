@@ -11,7 +11,10 @@
 
 ;;; Commentary:
 
-
+;;; Usage:
+;; - You can toggle it with minor mode.
+;;   (flycheck-inline-mode 1)
+;; - Or you can manually set option `flycheck-display-errors-function' to function `flycheck-inline'.
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
