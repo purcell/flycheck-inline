@@ -22,7 +22,7 @@
 (require 'flycheck)
 
 ;;;###autoload
-(defun flycheck-inline (errors)
+(defun flycheck-inline-error-messages (errors)
   "Display the flycheck message of ERRORS with inline style."
   (when errors
     (if (display-graphic-p)
@@ -33,14 +33,12 @@
   )
 
 ;;;###autoload
-(define-minor-mode flycheck-inline-mode
-  "This is a minor mode to display flycheck error message in inline way."
-  :global t
-  (if flycheck-inline-mode
-      (setq-local flycheck-display-errors-function 'flycheck-inline)
+(defun flycheck-inline-toggle ()
+  "Toggle flycheck inline popup style display."
+  (if (eq 'flycheck-inline-error-messages flycheck-display-errors-function)
+      (setq-local flycheck-display-errors-function 'flycheck-inline-error-messages)
     (setq-local flycheck-display-errors-function 'flycheck-display-error-messages)
     ))
-
 
 ;;; ----------------------------------------------------------------------------
 
